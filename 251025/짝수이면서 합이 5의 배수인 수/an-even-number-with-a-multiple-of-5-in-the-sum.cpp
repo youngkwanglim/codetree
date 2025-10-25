@@ -5,8 +5,7 @@ using namespace std;
 int n;
 
 bool pan(int i){
-    if(((i % 10) + i/10) % 5 == 0 && n % 2 == 0) return true;
-    else return false;
+    return ((i % 10) + i/10) % 5 == 0 && n % 2 == 0;
 }
 
 int main() {
