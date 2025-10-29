@@ -5,9 +5,9 @@ using namespace std;
 int Y, M, D;
 
 bool checkYoon(int Y){
-    if(Y % 400) return true;
-    else if(Y % 100) return false;
-    else if(Y % 4) return true;
+    if(Y % 400 == 0) return true;
+    else if(Y % 100 == 0) return false;
+    else if(Y % 4 == 0) return true;
     return false;
 }
 
