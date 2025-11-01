@@ -7,7 +7,7 @@ using namespace std;
 string A;
 bool go(string s){
     string tmp = s;
-    revese(s.begin(), s.end());
+    reverse(s.begin(), s.end());
     if(tmp == s) return true;
     else return false;
 }
