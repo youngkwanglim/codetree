@@ -24,7 +24,7 @@ int gcd(int a, int b){
 }
 
 int go(int k){
-    if(k == 1) return arr[1];
+    if(k == 0) return arr[0];
     return gcd(go(k - 1), arr[k]);
 }
 
