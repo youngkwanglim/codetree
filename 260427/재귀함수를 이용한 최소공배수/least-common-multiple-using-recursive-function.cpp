@@ -7,20 +7,27 @@ int arr[10];
 // 최대 공약수를 구하고, 그거에 곱하면 최대 공배수긴 함.
 // 그걸 여러번 반복하면됨.
 
-// 유클리드 호제법 (재귀)
-int gcd(int a, int b){
-    if(b == 0) return a;
-    return gcd(b, a % b);
-}
 
-int lcm(int a, int b){
-    return a * b / gcd(a, b);
+int gcd(int a, int b){
+    int min = 0;
+    if(a > b) min = b;
+    else min = a;
+
+    int tmp = 1;
+    for(int i = 1; i <= min; i++){
+        if(a % i == 0 && b % i == 0){
+            tmp = i;
+        }
+    }
+
+    return a * b / tmp;
 }
 
 int go(int k){
-    if(k == 0) return arr[0];
-    return lcm(go(k - 1), arr[k]);
+    if(k == 1) return arr[1];
+    return gcd(go(k - 1), arr[k]);
 }
+
 
 int main() {
     cin >> n;
