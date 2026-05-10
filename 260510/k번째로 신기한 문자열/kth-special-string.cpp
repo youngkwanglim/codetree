@@ -19,7 +19,7 @@ int main() {
     int tmp = 0;
 
     for(int i = 0; i < n; i++) {
-        if(t == a[i].substr(0, t.length())) {
+        if(t == a[i].substr(0, t.size())) {
             tmp = i;
             break;
         }
