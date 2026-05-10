@@ -2,7 +2,8 @@
 using namespace std;
 
 struct Secret{
-    string code, space;
+    string code;
+    char space;
     int time;
 };
 
