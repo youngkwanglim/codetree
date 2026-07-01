@@ -1,13 +1,12 @@
 #include <iostream>
 #include <algorithm>
-#include <iomanip>
 using namespace std;
 const int n = 5;
 
 struct Student{
     string name;
     int h;
-    float w;
+    double w;
 };
 
 bool cmp(Student A, Student B){
@@ -21,7 +20,8 @@ bool cmp2(Student A, Student B){
 int main() {
     // Please write your code here.
     Student students[n];
-    cout << fixed << setprecision(1);
+    cout << fixed;
+    cout.precision(1);
 
     for(int i = 0; i < n; i++){
         cin >> students[i].name >> students[i].h >> students[i].w;
