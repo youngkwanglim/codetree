@@ -9,13 +9,13 @@ int main() {
     // Please write your code here.
      // 두번째 필드에 원래 위치를 저장한다. 그리고 정렬하고 새로운 배열에 그 값들을 넣어준다.
     cin >> n;
-    vector<pair<int, int>> p(n);
+    pair<int,int> p[n];
     for(int i = 0; i < n; i++){
         cin >> p[i].first;
         p[i].second = i + 1;
     }
 
-    sort(p.begin(), p.end());
+    sort(p, p + n);
 
 
     int ret[n + 4];
