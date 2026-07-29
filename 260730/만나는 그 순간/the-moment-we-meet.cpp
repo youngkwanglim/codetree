@@ -52,14 +52,15 @@ int main() {
         }
     }
 
+    int ret = -1;
     for(int i = 1; i <= cnt - 1; i++){
         if(a[i] == b[i]) {
             //cout << a[i] << " " << b[i] << '\n';
-            cout << i;
-            return 0;
+            ret = i;
+            break;
         }
     }
 
-    cout << -1;
+    cout << ret;
     return 0;
 }
