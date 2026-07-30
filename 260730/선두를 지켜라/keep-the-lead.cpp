@@ -32,28 +32,28 @@ int main() {
 
     // 선두가 바뀌는 조건을 어떻게 판단할 것인가.
     // flg 를 하나 세워서 a가 높을 때는 1 b가 높을 때는 -1, 시작은 0으로 해서 flg 바뀔 때 ret++
-    for(int i = 1; i <= ti; i++){
-        if(a[i] > b[i]) {
-            flg = 1;    
-            break;
-        }
-        if(b[i] > a[i]) {
-            flg = -1;
-            break;
-        }
-    }
+    // for(int i = 1; i <= ti; i++){
+    //     if(a[i] > b[i]) {
+    //         flg = 1;    
+    //         break;
+    //     }
+    //     if(b[i] > a[i]) {
+    //         flg = -1;
+    //         break;
+    //     }
+    // }
 
 
     for(int i = 1; i <= ti; i++){
         //if(a[i] == b[i] && ((a[i - 1] > b[i - 1]) && (a[i + 1] < b[i + 1]) || (a[i - 1] < b[i - 1]) && (a[i + 1] > b[i + 1]))) ret++;
     
-        if((a[i] > b[i]) && flg == -1){
+        if((a[i] > b[i])){
+            if(flg == -1) ret++;
             flg = 1;
-            ret++;
         }
-        else if ((a[i] < b[i]) && flg == 1) {
+        else if ((a[i] < b[i])) {
+            if(flg == 1) ret++;
             flg = -1;
-            ret++;
         }
     }
 
