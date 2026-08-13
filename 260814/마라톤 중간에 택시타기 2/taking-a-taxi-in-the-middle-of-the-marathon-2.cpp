@@ -25,19 +25,13 @@ int main() {
     for(int i = 1; i < n - 1; i++){
 
         int tmp = 0;
-        for(int j = 0; j < n - 1; j++){
+        int prev_idx = 0;
+        for(int j = 1; j < n; j++){
             if(j == i){
                 continue;
             }
-            else if(j + 1 == i){
-                tmp += (abs(v[j].first - v[j + 2].first) + abs(v[j].second - v[j + 2].second));
-                //cout << tmp << '\n';
-            }
-            else{
-                tmp += (abs(v[j].first - v[j + 1].first) + abs(v[j].second - v[j + 1].second));
-                //cout << tmp << '\n';
-            }
-            //cout << "hi" << '\n';
+            tmp += (abs(v[prev_idx].first - v[j].first) + abs(v[prev_idx].second - v[j].second));
+            prev_idx = j;
         }
 
         ret = min(ret, tmp);
