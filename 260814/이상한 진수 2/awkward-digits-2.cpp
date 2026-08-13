@@ -18,11 +18,8 @@ int main() {
         }
 
         tmp = 0;
-        gop = 1;
-        for(int j = s2.size() - 1; j >=0; j--){
-            tmp += gop * (s2[j] - '0');
-            //cout << tmp << '\n';
-            gop *= 2;
+        for(int j = 0; j < s.size(); j++){
+            tmp = tmp * 2 + (s2[j] - '0');
         }
         ret = max(ret, tmp);
     }
