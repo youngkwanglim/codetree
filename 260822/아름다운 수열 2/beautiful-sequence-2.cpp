@@ -1,8 +1,9 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-int n, m, a[104], b[104], ret;
+int n, m, a[104], b[104], ret, tmp[104];
 
 int main() {
 
@@ -15,26 +16,18 @@ int main() {
     for(int i = 0; i < m; i++){
         cin >> b[i];
     }
+    sort(b, b + m);
 
-    for(int i = 0; i < n - m + 1; i++){
-
-        int b_check[m] = {};  // 여기만 수정
+    for(int i = 0; i <= n - m; i++){
         int flg = 0;
-
-        for(int j = i; j < i + m; j++){
-
-            for(int k = 0; k < m; k++){
-
-                if(b_check[k] == 0 && a[j] == b[k]){
-                    b_check[k] = 1;
-                    break;  // 이것도 추가하는 것을 추천
-                }
-            }
+        for(int j = 0; j < m; j++){
+            tmp[j] = a[i + j];
         }
+        sort(tmp, tmp + m);
+
 
         for(int k = 0; k < m; k++){
-
-            if(b_check[k] == 0){
+            if(b[k] != tmp[k]){
                 flg = 1;
                 break;
             }
