@@ -18,7 +18,7 @@ int main() {
 
     for(int i = 0; i < n - m + 1; i++){
 
-        int b_check[104] = {};  // 여기만 수정
+        int b_check[m] = {};  // 여기만 수정
         int flg = 0;
 
         for(int j = i; j < i + m; j++){
