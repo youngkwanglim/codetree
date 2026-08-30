@@ -8,7 +8,7 @@ Gift gift[1004];
 int n, b, ret;
 
 bool cmp(Gift a, Gift b){
-    if(a.sum == b.sum) return a.p < b.p;
+    // if(a.sum == b.sum) return a.p < b.p;
     return a.sum < b.sum;
 }
 
