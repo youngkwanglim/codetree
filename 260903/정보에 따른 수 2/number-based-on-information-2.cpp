@@ -1,6 +1,8 @@
 #include <iostream>
+#include <algorithm>
+#include <climits>
 using namespace std;
-int t, a, b, idx, ret;
+int t, a, b, idx, ret, s[1004], n[1004], cnt_s, cnt_n;
 char c[1004], cc;
 
 int main() {
@@ -8,36 +10,18 @@ int main() {
     cin >> t >> a >> b;
     for(int i = 0; i < t; i++){
         cin >> cc >> idx;
-        c[idx] = cc;
+        if(cc == 'S') s[cnt_s++] = idx;
+        else n[cnt_n++] = idx;
     }
 
     for(int k = a; k <= b; k++){
-        int d1 = b - a + 1;
-        int d2 = b - a + 1;
-        for(int i = 0; i <= b - a + 1; i++){
-            if(k - i >= 1 && c[k - i] == 'S'){
-                d1 = min(d1, i);
-            // cout << k << " " << i << " " << d1 << '\n';
-
-            }
-            if(k + i <= 1000 && c[k + i] == 'S'){
-                d1 = min(d1, i);
-            // cout << k << " " << i << " " << d1 << '\n';
-
-            }
+        int d1 = INT_MAX;
+        int d2 = INT_MAX;
+        for(int i = 0; i < cnt_s; i++){
+            d1 = min(d1, abs(s[i] - k));
         }
-
-        for(int i = 0; i <= b - a + 1; i++){
-            // if((k - i >= 1 && c[k - i] == 'N') || (k + i <= t && c[k + i] == 'N')){
-            //     d2 = i;
-            //     break;
-            // }
-            if(k - i >= 1 && c[k - i] == 'N'){
-                d2 = min(d2, i);
-            }
-            if(k + i <= 1000 && c[k + i] == 'N'){
-                d2 = min(d2, i);
-            }
+        for(int i = 0; i < cnt_n; i++){
+            d2 = min(d2, abs(n[i] - k));
         }
         // cout << d1 << " " << d2 << '\n';
         if(d2 >= d1) ret++;
