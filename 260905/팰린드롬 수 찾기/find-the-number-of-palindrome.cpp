@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 int x, y, ret;
 
@@ -8,14 +9,9 @@ int main() {
 
     for(int i = x; i <= y; i++){
         string s = to_string(i);
-        int flg = 0;
-        for(int i = 0; i < s.size() / 2; i++){
-            if(s[i] != s[s.size() - 1 - i]) {
-                flg = 1;
-                break;
-            }
-        }
-        if(flg == 0) ret++;
+        string s2 = s;
+        reverse(s.begin(), s.end());
+        if(s == s2) ret++;
     }
 
     cout << ret;
