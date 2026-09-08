@@ -16,9 +16,10 @@ int main() {
         int cnt = 0;
         ball[i] = 1;
         for(int j = 0; j < n; j++){
-            int tmp = ball[stone[j][0] - 1];
-            ball[stone[j][0] - 1] = ball[stone[j][1] - 1];
-            ball[stone[j][1] - 1] = tmp;
+            // int tmp = ball[stone[j][0] - 1];
+            // ball[stone[j][0] - 1] = ball[stone[j][1] - 1];
+            // ball[stone[j][1] - 1] = tmp;
+            swap(ball[stone[j][0] - 1], ball[stone[j][1] - 1]);
 
             if(ball[stone[j][2] - 1] == 1) cnt++;
         }
