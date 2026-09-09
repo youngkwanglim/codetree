@@ -11,8 +11,8 @@ int main() {
         cin >> x[i] >> y[i];
     }
 
-    for(int i = 2; i <= 100; i += 2){
-        for(int j = 2; j <= 100; j += 2){
+    for(int i = 0; i <= 100; i += 2){
+        for(int j = 0; j <= 100; j += 2){
             int cnt_1 = 0;
             int cnt_2 = 0;
             int cnt_3 = 0;
