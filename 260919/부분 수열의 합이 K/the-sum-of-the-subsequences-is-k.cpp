@@ -2,6 +2,10 @@
 using namespace std;
 int n, k, a[1004], ret, psum[1004];
 
+int GetSum(int i, int j){
+    return psum[j] - psum[i - 1];
+}
+
 int main() {
     // Please write your code here.
     cin >> n >> k;
@@ -10,10 +14,9 @@ int main() {
         psum[i] = psum[i - 1] + a[i];
     }
 
-    for(int i = 1; i <= n; i++){ // 구간 크기 정하기
-        for(int j = 0; j <= n - i; j++){
-            int tmp = psum[j + i] - psum[j];
-            if(tmp == k) ret++;
+    for(int i = 1; i <= n; i++){ 
+        for(int j = i; j <= n; j++){
+            if(GetSum(i, j) == k) ret++;
         }
     }
 
