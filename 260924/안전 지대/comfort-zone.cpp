@@ -43,6 +43,7 @@ int main() {
             for(int j = 0; j < m; j++){
                 if(a[i][j] > h && !visited[i][j]){
                     cnt++;
+                    visited[i][j] = 1;
                     DFS(i, j, h);
                 }
             }
