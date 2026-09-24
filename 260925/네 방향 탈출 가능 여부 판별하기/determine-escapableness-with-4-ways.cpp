@@ -15,7 +15,7 @@ bool CanGo(int y, int x){
     return true;
 }
 
-void DFS(int y, int x){
+void BFS(int y, int x){
     while(q.size()){
         tie(y, x) = q.front();
         q.pop();
@@ -42,7 +42,7 @@ int main() {
 
     visited[0][0] = 1;
     q.push({0, 0});
-    DFS(0, 0);
+    BFS(0, 0);
 
     if(visited[n - 1][m - 1]) cout << 1;
     else cout << 0;
