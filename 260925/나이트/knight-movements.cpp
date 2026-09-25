@@ -46,7 +46,7 @@ int main() {
     cin >> n;
     cin >> sy >> sx >> ey >> ex;
 
-    q.push({sy, sx});
+    Push(sy, sx, 0);
     BFS();    // 제자리로 돌아오면 멈추기.
     return 0;
 }
