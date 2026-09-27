@@ -19,10 +19,10 @@ void go(int cnt, int start){
 
     for(int i = start; i <= n; i++){
         if(!visited[i]){
-            visited[i] = 1;
+            // visited[i] = 1;
             v.push_back(i);
             go(cnt + 1, i + 1);
-            visited[i] = 0;
+            // visited[i] = 0;
             v.pop_back();
         }
     }
