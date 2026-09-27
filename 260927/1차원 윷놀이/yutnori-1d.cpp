@@ -1,32 +1,41 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int n, m, k, a[16], ret;
+int n, m, k, a[16], ret, horse[10];
 vector<int> v;
 
-void CalResult(){
-    int horse[5] = {};
-    int tmp = 0;
-    for(int i = 0; i < n; i++){
-        horse[v[i]] += a[i];
-    }
+// void CalResult(){
+//     int horse[5] = {};
+//     int tmp = 0;
+//     for(int i = 0; i < n; i++){
+//         horse[v[i]] += a[i];
+//     }
 
-    for(int i = 1; i <= k; i++){
-        if(horse[i] >= m - 1) tmp++;
+//     for(int i = 1; i <= k; i++){
+//         if(horse[i] >= m - 1) tmp++;
+//     }
+//     ret = max(ret, tmp);
+// }
+
+int Calc() {
+    int score = 0;
+    for(int i = 0; i < k; i++){
+        if(horse[i] >= m - 1) score++;
     }
-    ret = max(ret, tmp);
+    return score;
 }
 
 void Go(int num){
+    ret = max(ret, Calc());
+
     if(num == n){
-        CalResult();
         return;
     }
 
-    for(int i = 1; i <= k; i++){
-        v.push_back(i);
+    for(int i = 0; i < k; i++){
+        horse[i] += a[num];
         Go(num + 1);
-        v.pop_back();
+        horse[i] -= a[num];
     }
 }
 
