@@ -6,11 +6,9 @@ int n, m, ret, a[24];
 vector<int> v;
 
 void CalXOR(){
-    int tmp = v[0];
-    if(v.size() >= 2){
-        for(int i = 1; i < m; i++){
-            tmp = tmp ^ v[i];
-        }
+    int tmp = 0;
+    for(int i : v){
+        tmp ^= i;
     }
     ret = max(ret, tmp);
 }
